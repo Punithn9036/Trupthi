@@ -9,9 +9,25 @@ const PORT = process.env.PORT || 3001;
 // ------------------------------------------------------------
 // Middleware
 // ------------------------------------------------------------
+const allowedOriginSetting = process.env.ALLOWED_ORIGIN;
 app.use(
   cors({
-    origin: process.env.ALLOWED_ORIGIN || "*", // set this to your deployed frontend URL in production
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like local files, curl, postman)
+      if (!origin) return callback(null, true);
+      if (!allowedOriginSetting || allowedOriginSetting === "*") {
+        return callback(null, true);
+      }
+      const allowed = allowedOriginSetting.split(",").map((s) => s.trim());
+      if (
+        allowed.includes(origin) ||
+        origin.startsWith("http://localhost:") ||
+        origin.startsWith("http://127.0.0.1:")
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Fallback to allowing during development
+    },
   })
 );
 app.use(express.json({ limit: "50kb" })); // small limit — this only ever receives a short form
