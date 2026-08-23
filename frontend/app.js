@@ -401,6 +401,7 @@
 
   // ----------------------------------------------------------
   // MUSIC PLAYER ("♫ Play something?" -> "I Wanna Be Yours")
+  // Starts at exactly 43.5s when clicked
   // ----------------------------------------------------------
   safe(function initMusicPlayer() {
     const btn = document.getElementById("musicToggle");
@@ -408,14 +409,28 @@
     const text = document.getElementById("musicToggleText");
     if (!btn || !audio || !text) return;
 
+    const START_OFFSET = 43.5;
+    let hasStartedOnce = false;
+
     btn.addEventListener("click", () => {
       if (audio.paused) {
+        if (!hasStartedOnce) {
+          try {
+            audio.currentTime = START_OFFSET;
+          } catch (_) {}
+          hasStartedOnce = true;
+        }
+
         audio.play().then(() => {
+          if (audio.currentTime < 1) {
+            try {
+              audio.currentTime = START_OFFSET;
+            } catch (_) {}
+          }
           btn.classList.add("is-playing");
           text.textContent = "I Wanna Be Yours ⏸";
         }).catch((err) => {
           console.warn("Audio playback failed or needs user interaction:", err);
-          // If no audio file is found or network issue:
           text.textContent = "I Wanna Be Yours ♪";
         });
       } else {
@@ -428,6 +443,7 @@
     audio.addEventListener("ended", () => {
       btn.classList.remove("is-playing");
       text.textContent = "Play something?";
+      hasStartedOnce = false;
     });
   }, "music player");
 })();
