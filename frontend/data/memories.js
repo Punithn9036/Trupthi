@@ -45,7 +45,7 @@ const memories = [
   ,
   {
     date: "2024-06-07",
-    title: "Do u remember the birthday when i called u to wish u",
+    title: "Do you remember the birthday when I called to wish you?",
     description: "You sent that goofy selfie and I couldn't stop smiling",
     image: "Kandamma/IMG_20260607_172142_511.jpg",
     feature: true
@@ -82,7 +82,7 @@ const hugPhoto = {
 // A quieter background-ish photo for slide 5 ("time passed").
 const timePassedPhoto = {
   image: "Kandamma/IMG20260823021226_20260823021256.jpg", // e.g. "images/time-passed.jpg"
-  caption: "Youu are myy everythingggg❤️"
+  caption: "Youu are myy everythingggg❤️\nI wanted to recreate the masterpiece."
 };
 
 // Exported for app.js to use.

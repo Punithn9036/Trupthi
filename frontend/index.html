@@ -19,6 +19,15 @@
   <!-- progress indicator -->
   <div class="progress" id="progress" aria-live="polite"></div>
 
+  <!-- music player toggle (manual play, never autoplays) -->
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music">
+    <span class="music-toggle-icon" aria-hidden="true">♫</span>
+    <span class="music-toggle-text" id="musicToggleText">Play something?</span>
+  </button>
+  <audio id="bgMusic" preload="none" loop>
+    <source src="audio/i-wanna-be-yours.mp3" type="audio/mpeg" />
+  </audio>
+
   <!-- ============= SLIDE 1 — OPENING ============= -->
   <section class="slide" data-slide="1">
     <div class="slide-inner slide-inner--center">
@@ -125,6 +134,7 @@
     <div class="slide-inner">
       <div class="time-photo-wrap" id="timePhotoWrap" hidden>
         <img id="timePhotoImg" class="time-photo" alt="" />
+        <p class="polaroid-caption time-photo-caption" id="timePhotoCaption"></p>
       </div>
       <p class="paragraph paragraph--lg reveal-text">More than three years have passed since our story began.</p>
      

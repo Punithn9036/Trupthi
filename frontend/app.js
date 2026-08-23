@@ -345,9 +345,13 @@
     if (!(DATA.timePassedPhoto && DATA.timePassedPhoto.image)) return;
     const wrap = document.getElementById("timePhotoWrap");
     const img = document.getElementById("timePhotoImg");
+    const cap = document.getElementById("timePhotoCaption");
     if (!wrap || !img) return;
     img.src = DATA.timePassedPhoto.image;
     img.alt = DATA.timePassedPhoto.caption || "";
+    if (cap && DATA.timePassedPhoto.caption) {
+      cap.textContent = DATA.timePassedPhoto.caption;
+    }
     wrap.hidden = false;
   }, "time-passed photo");
 
@@ -394,4 +398,36 @@
       });
     }
   }, "memory polaroids");
+
+  // ----------------------------------------------------------
+  // MUSIC PLAYER ("♫ Play something?" -> "I Wanna Be Yours")
+  // ----------------------------------------------------------
+  safe(function initMusicPlayer() {
+    const btn = document.getElementById("musicToggle");
+    const audio = document.getElementById("bgMusic");
+    const text = document.getElementById("musicToggleText");
+    if (!btn || !audio || !text) return;
+
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          btn.classList.add("is-playing");
+          text.textContent = "I Wanna Be Yours ⏸";
+        }).catch((err) => {
+          console.warn("Audio playback failed or needs user interaction:", err);
+          // If no audio file is found or network issue:
+          text.textContent = "I Wanna Be Yours ♪";
+        });
+      } else {
+        audio.pause();
+        btn.classList.remove("is-playing");
+        text.textContent = "Play something? ▶";
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      btn.classList.remove("is-playing");
+      text.textContent = "Play something?";
+    });
+  }, "music player");
 })();
