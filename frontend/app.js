@@ -3,11 +3,15 @@
 
   // ----------------------------------------------------------
   // CONFIG — point this at your deployed backend.
-  const API_BASE =
-    window.API_BASE_URL ||
-    (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-      ? "http://localhost:3001"
-      : "");
+  let API_BASE = window.API_BASE_URL;
+  if (!API_BASE) {
+    const isLocal =
+      window.location.protocol === "file:" ||
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1" ||
+      window.location.hostname === "";
+    API_BASE = isLocal ? "http://localhost:3001" : "";
+  }
 
   // ============================================================
   // PART 1 — CRITICAL SETUP (navigation + forms)
