@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+<title>For Kandaa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ambient floating hearts, subtle, respects reduced-motion -->
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+
+<main class="stage">
+
+  <!-- progress indicator -->
+  <div class="progress" id="progress" aria-live="polite"></div>
+
+  <!-- ============= SLIDE 1 — OPENING ============= -->
+  <section class="slide" data-slide="1">
+    <div class="slide-inner slide-inner--center">
+      <p class="eyebrow">a letter, of sorts</p>
+      <h1 class="display display--xl">Hey Kandaaaa <span class="heart">❤</span></h1>
+      <p class="lede">I made something for you.</p>
+      <p class="lede lede--soft">It's not very long.<br>Just hear me out?</p>
+      <div class="opening-photo-wrap" id="openingPhotoWrap" hidden>
+        <div class="polaroid polaroid--float">
+          <img id="openingPhotoImg" alt="" />
+          <p class="polaroid-caption" id="openingPhotoCaption"></p>
+        </div>
+      </div>
+      <button class="btn btn--primary" data-next>Start <span aria-hidden="true">→</span></button>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 2 — WHY I MADE THIS ============= -->
+  <section class="slide" data-slide="2">
+    <div class="slide-inner">
+      <p class="eyebrow">why this</p>
+      <p class="paragraph paragraph--lg">There's something I've wanted to tell you for a really long time.</p>
+      <p class="paragraph">I've tried saying it in my head a hundred different ways, but I don't think I've ever properly explained how I feel.</p>
+      <p class="paragraph paragraph--emphasis">So I decided to show you instead.</p>
+      <div class="nav-row">
+        <button class="btn btn--ghost" data-back>← Back</button>
+        <button class="btn btn--primary" data-next>Next <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 3 — OUR RELATIONSHIP ============= -->
+  <section class="slide" data-slide="3">
+    <div class="slide-inner">
+      <p class="eyebrow">what we had</p>
+      <p class="paragraph paragraph--lg">We were together for a year.</p>
+      <p class="paragraph">And somehow, that entire year was long-distance.</p>
+      <p class="paragraph paragraph--tight">We had conversations.<br>Messages.<br>Little moments that made the distance feel smaller.</p>
+      <p class="paragraph paragraph--emphasis">But there were so many things we never got to experience together.</p>
+
+      <div class="polaroid-row" id="memoryPhotos">
+        <div class="polaroid polaroid--slot polaroid--placeholder" data-slot="0"></div>
+        <div class="polaroid polaroid--slot polaroid--placeholder" data-slot="1"></div>
+        <div class="polaroid polaroid--slot polaroid--placeholder" data-slot="2"></div>
+        <div class="polaroid polaroid--slot polaroid--placeholder" data-slot="3"></div>
+        <div class="polaroid polaroid--slot polaroid--placeholder" data-slot="4"></div>
+        <div class="polaroid polaroid--slot polaroid--placeholder" data-slot="5"></div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn btn--ghost" data-back>← Back</button>
+        <button class="btn btn--primary" data-next>Next <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============= SLIDE 4 — THINGS WE MISSED ============= -->
+  <section class="slide" data-slide="4">
+    <div class="slide-inner">
+      <p class="eyebrow">things we missed</p>
+      <p class="paragraph paragraph--lg">There were so many small moments we never shared.</p>
+      <p class="paragraph">Simple things — a walk together, a movie, a silly inside joke in person.</p>
+      <p class="paragraph paragraph--tight">No coffees. No spontaneous plans.</p>
+      <p class="paragraph paragraph--emphasis">I keep thinking about the ordinary moments we never had.</p>
+
+      <!-- removed duplicate memoryPhotos2; slide 3 now shows up to 4 memories -->
+
+      <div class="nav-row">
+        <button class="btn btn--ghost" data-back>← Back</button>
+        <button class="btn btn--primary" data-next>Next <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- ============= SLIDE 5 — THE HUG ============= -->
+  <section class="slide slide--hug" data-slide="5">
+    <div class="slide-inner slide-inner--center">
+      <p class="paragraph paragraph--soft">There's something I still think about.</p>
+
+      <div class="hug-photo-wrap">
+        <div class="polaroid polaroid--lg polaroid--tilt-left" id="hugPhotoCard">
+          <img id="hugPhotoImg" alt="" />
+          <p class="polaroid-caption" id="hugPhotoCaption"></p>
+        </div>
+      </div>
+
+      <p class="paragraph paragraph--soft">We were together for an entire year.</p>
+      <p class="paragraph paragraph--soft">And in all that time&hellip;</p>
+      <p class="paragraph paragraph--soft">I only got to hug you once.</p>
+      <p class="display display--emphasis">Once. <span class="heart">❤</span></p>
+      <p class="paragraph paragraph--soft">Just one hug.</p>
+      <p class="paragraph paragraph--soft">Did not get a single chance to hold your hand😭.</p>
+
+      <div class="nav-row">
+        <button class="btn btn--ghost" data-back>← Back</button>
+        <button class="btn btn--primary" data-next>Next <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 6 — TIME PASSED ============= -->
+  <section class="slide" data-slide="6">
+    <div class="slide-inner">
+      <div class="time-photo-wrap" id="timePhotoWrap" hidden>
+        <img id="timePhotoImg" class="time-photo" alt="" />
+      </div>
+      <p class="paragraph paragraph--lg reveal-text">More than three years have passed since our story began.</p>
+     
+<p class="paragraph reveal-text">And for the last two years, a part of me has still been waiting.</p>
+<p class="paragraph reveal-text">I know that's a long time.</p>
+<p class="paragraph reveal-text">I know life has changed.</p>
+<p class="paragraph paragraph--emphasis reveal-text">But I never really stopped caring about you.</p>
+
+<p class="paragraph reveal-text">And I know I wasn't perfect.</p>
+<p class="paragraph reveal-text">I know I made mistakes.</p>
+<p class="paragraph reveal-text">I know there were things I could have done differently.</p>
+<p class="paragraph reveal-text">I've had a lot of time to think about them.</p>
+
+<p class="paragraph reveal-text">I can't change what happened.</p>
+<p class="paragraph reveal-text">But I can promise you that I've learned from it.</p>
+<p class="paragraph paragraph--emphasis reveal-text">And if you ever give me another chance, I promise I won't repeat those mistakes.</p>
+
+<p class="paragraph reveal-text">I don't want to go back to exactly what we had.</p>
+<p class="paragraph paragraph--emphasis reveal-text">I want to be better this time. For myself, and for us.</p>
+
+<div class="nav-row">
+      <button class="btn btn--ghost" data-back>← Back</button>
+      <button class="btn btn--primary" data-next>Next <span aria-hidden="true">→</span></button>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 7 — WHAT I ACTUALLY WANT TO SAY ============= -->
+  <section class="slide" data-slide="7">
+    <div class="slide-inner">
+      <p class="eyebrow">what I actually want to say</p>
+      <p class="paragraph">I'm not asking you to forget everything that happened.</p>
+      <p class="paragraph">I'm not asking you to pretend nothing went wrong.</p>
+      <p class="paragraph">And I'm definitely not asking you to make a decision because I waited.</p>
+      <p class="paragraph paragraph--lg paragraph--emphasis">I just want one chance to talk to you again. Properly.</p>
+      <p class="paragraph">If we ever tried again, I wouldn't want to simply go back to what we had.</p>
+      <p class="paragraph">I'd want to do it differently. I'd want to actually be there.</p>
+      <p class="paragraph paragraph--tight">Not behind a screen.<br>Not through a phone.</p>
+      <p class="paragraph paragraph--emphasis">I want the ordinary moments we never got to have.</p>
+      <div class="nav-row">
+        <button class="btn btn--ghost" data-back>← Back</button>
+        <button class="btn btn--primary" data-next>Next <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 8 — THE QUESTION ============= -->
+  <section class="slide" data-slide="8">
+    <div class="slide-inner slide-inner--center">
+      <p class="paragraph paragraph--soft reveal-text" style="--d:0s">So, Kandaaaa&hellip;</p>
+      <h2 class="display display--xl reveal-text" style="--d:.4s">Can we have one more date? <span class="heart">❤</span></h2>
+      <p class="paragraph paragraph--soft reveal-text" style="--d:.9s">Not a promise.</p>
+      <p class="paragraph paragraph--soft reveal-text" style="--d:1.1s">Not a commitment.</p>
+      <p class="paragraph paragraph--soft reveal-text" style="--d:1.3s">Just one evening. Just us.</p>
+      <p class="paragraph paragraph--emphasis reveal-text" style="--d:1.6s">Maybe we can finally make the kind of memory we never got to make when we were together.</p>
+
+      <div class="choice-row reveal-text" style="--d:2s">
+        <button class="btn btn--primary btn--choice" id="btnYes">YES, LET'S <span class="heart">❤</span></button>
+        <button class="btn btn--secondary btn--choice" id="btnTalk">I'D RATHER TALK FIRST <span aria-hidden="true">💬</span></button>
+      </div>
+      <div class="nav-row nav-row--single">
+        <button class="btn btn--ghost" data-back>← Back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 9A — DATE SELECTION (if YES) ============= -->
+  <section class="slide" data-slide="9a">
+    <div class="slide-inner">
+      <h2 class="display display--lg">Then let's meet. <span class="heart">❤</span></h2>
+      <p class="paragraph">Pick a day and time that works for you.</p>
+
+      <form id="dateForm" class="form" novalidate>
+        <label class="field">
+          <span class="field-label">Date</span>
+          <input type="date" id="dateInput" name="date" required />
+        </label>
+        <label class="field">
+          <span class="field-label">Time</span>
+          <input type="time" id="timeInput" name="time" required />
+        </label>
+        <label class="field">
+          <span class="field-label">Anything you want me to know? <em>(optional)</em></span>
+          <textarea id="messageInput" name="message" rows="3" maxlength="500" placeholder="Optional message..."></textarea>
+        </label>
+        <p class="form-error" id="formError" role="alert" hidden></p>
+        <button type="submit" class="btn btn--primary" id="confirmDateBtn">
+          <span class="btn-label">Confirm our date <span class="heart">❤</span></span>
+          <span class="btn-spinner" hidden aria-hidden="true"></span>
+        </button>
+        <p class="form-note" id="submitError" role="alert" hidden>Something went wrong sending this. Please try again in a moment.</p>
+      </form>
+      <div class="nav-row nav-row--single">
+        <button class="btn btn--ghost" data-back-to-8>← Back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 9A-CONFIRM — AFTER SUBMISSION ============= -->
+  <section class="slide" data-slide="9a-confirm">
+    <div class="slide-inner slide-inner--center">
+      <div class="hearts-burst" aria-hidden="true"></div>
+      <h2 class="display display--lg">It's a date. <span class="heart">❤</span></h2>
+      <p class="paragraph">You chose:</p>
+      <p class="paragraph paragraph--lg" id="confirmedDateTime"></p>
+      <p class="paragraph paragraph--soft">I'll see you there.</p>
+      <p class="paragraph paragraph--soft" style="margin-top:2rem;">And this time&hellip;</p>
+      <p class="paragraph paragraph--emphasis">I don't want our only hug to be the last one.</p>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 9B — TALK FIRST ============= -->
+  <section class="slide" data-slide="9b">
+    <div class="slide-inner">
+      <h2 class="display display--lg">That's okay. <span class="heart">❤</span></h2>
+      <p class="paragraph">I'd rather you be honest with me.</p>
+      <p class="paragraph">If you'd like, we can talk first.</p>
+
+      <form id="talkForm" class="form" novalidate>
+        <label class="field">
+          <span class="field-label">What would you like to say? <em>(optional)</em></span>
+          <textarea id="talkMessageInput" name="message" rows="4" maxlength="800" placeholder="Say whatever you're feeling..."></textarea>
+        </label>
+        <button type="submit" class="btn btn--primary" id="sendTalkBtn">
+          <span class="btn-label">Send</span>
+          <span class="btn-spinner" hidden aria-hidden="true"></span>
+        </button>
+        <p class="form-note" id="talkSubmitError" role="alert" hidden>Something went wrong sending this. Please try again in a moment.</p>
+      </form>
+      <div class="nav-row nav-row--single">
+        <button class="btn btn--ghost" data-back-to-8>← Back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SLIDE 9B-CONFIRM ============= -->
+  <section class="slide" data-slide="9b-confirm">
+    <div class="slide-inner slide-inner--center">
+      <h2 class="display display--lg">Thank you. <span class="heart">❤</span></h2>
+      <p class="paragraph">I meant what I said — there's no pressure here.</p>
+      <p class="paragraph paragraph--soft">Whenever you're ready, I'm here.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="data/memories.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
