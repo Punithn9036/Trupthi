@@ -3,9 +3,11 @@
 
   // ----------------------------------------------------------
   // CONFIG — point this at your deployed backend.
-  // For local dev with `npm run dev` in /backend this is fine.
-  // ----------------------------------------------------------
-  const API_BASE = window.API_BASE_URL || "http://localhost:3001";
+  const API_BASE =
+    window.API_BASE_URL ||
+    (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+      ? "http://localhost:3001"
+      : "");
 
   // ============================================================
   // PART 1 — CRITICAL SETUP (navigation + forms)

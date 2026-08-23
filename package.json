@@ -1,0 +1,10 @@
+{
+  "name": "trupthi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trupthi - For Kandaa",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "nodemailer": "^6.10.0"
+  }
+}
